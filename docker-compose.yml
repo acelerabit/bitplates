@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  database:
+    image: postgres
+    container_name: setup
+    restart: always
+    ports:
+      - 5442:5432
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=setup_docker
+      - POSTGRES_DB=setup_docker
+    volumes:
+      - ./data/pg:/data/postgres
+  redis:
+    container_name: setup-redis
+    image: redis:alpine
+    ports:
+      - 6379:6379
+
+
+volumes:
+  pgdata:
+    driver: local
