@@ -3,7 +3,7 @@ version: '3.7'
 services:
   database:
     image: postgres
-    container_name: setup
+    container_name: templatebit
     restart: always
     ports:
       - 5442:5432
@@ -14,7 +14,7 @@ services:
     volumes:
       - ./data/pg:/data/postgres
   redis:
-    container_name: setup-redis
+    container_name: templatebit-redis
     image: redis:alpine
     ports:
       - 6379:6379

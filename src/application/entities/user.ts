@@ -1,10 +1,14 @@
 import { randomUUID } from 'node:crypto';
 import { Replace } from 'src/helpers/Replace';
 
+type Role = 'ADMIN' | 'USER';
+
 export interface UserProps {
   name: string;
   email: string;
   createdAt: Date;
+  password?: string;
+  role: Role;
 }
 
 export class User {
@@ -37,6 +41,22 @@ export class User {
 
   public set email(email: string) {
     this.props.email = email;
+  }
+
+  public get password(): string {
+    return this.props.password;
+  }
+
+  public set password(password: string) {
+    this.props.password = password;
+  }
+
+  public get role(): Role {
+    return this.props.role;
+  }
+
+  public set role(role: Role) {
+    this.props.role = role;
   }
 
   public get createdAt(): Date {
