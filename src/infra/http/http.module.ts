@@ -10,10 +10,31 @@ import { UsersController } from './controllers/users/users.controller';
 import { UpdateUser } from '@/application/usecases/users/update-user';
 import { EmailModule } from '../email/email.module';
 import { EmailController } from './controllers/email/email.controller';
+import { ReadAllNotifications } from '@/application/usecases/notifications/read-all-unread-notifications';
+import { ReadNotification } from '@/application/usecases/notifications/read-notification';
+import { FetchAllUnreadNotifications } from '@/application/usecases/notifications/fetch-all-unread-notifications';
+import { NotificationController } from './controllers/notifications/notification.controller';
+import { WebSocketModule } from '../websocket/websocket.module';
+import { WebsocketsGateway } from '../websocket/websocket.service';
 
 @Module({
-  imports: [DatabaseModule, CryptographyModule, EmailModule],
-  controllers: [UsersController, AuthController, EmailController],
-  providers: [CreateUser, LoginUser, LoginWithGoogle, JwtService, UpdateUser],
+  imports: [DatabaseModule, CryptographyModule, EmailModule, WebSocketModule],
+  controllers: [
+    UsersController,
+    AuthController,
+    EmailController,
+    NotificationController,
+  ],
+  providers: [
+    CreateUser,
+    LoginUser,
+    LoginWithGoogle,
+    JwtService,
+    UpdateUser,
+    ReadAllNotifications,
+    ReadNotification,
+    FetchAllUnreadNotifications,
+    WebsocketsGateway,
+  ],
 })
 export class HttpModule {}
