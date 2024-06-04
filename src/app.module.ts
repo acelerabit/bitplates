@@ -6,9 +6,16 @@ import { JwtEncrypter } from './infra/cryptography/jwt-encrypter';
 import { JwtService } from '@nestjs/jwt';
 import { CryptographyModule } from './infra/cryptography/cryptography.module';
 import { AuthModule } from './infra/auth/auth.module';
+import { SchedulesModule } from './infra/schedules/schedules.module';
 
 @Module({
-  imports: [HttpModule, DatabaseModule, CryptographyModule, AuthModule],
+  imports: [
+    HttpModule,
+    DatabaseModule,
+    CryptographyModule,
+    AuthModule,
+    SchedulesModule,
+  ],
   controllers: [],
   providers: [JwtEncrypter, JwtService],
 })
