@@ -1,4 +1,4 @@
-import { jwtSecret } from '@/application/common/constants';
+import { jwtSecret } from '@/common/constants';
 import { Encrypter } from '@/application/cryptography/encrypter';
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';

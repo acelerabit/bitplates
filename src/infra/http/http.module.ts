@@ -8,10 +8,12 @@ import { DatabaseModule } from '../database/database.module';
 import { AuthController } from './controllers/auth/auth.controller';
 import { UsersController } from './controllers/users/users.controller';
 import { UpdateUser } from '@/application/usecases/users/update-user';
+import { EmailModule } from '../email/email.module';
+import { EmailController } from './controllers/email/email.controller';
 
 @Module({
-  imports: [DatabaseModule, CryptographyModule],
-  controllers: [UsersController, AuthController],
+  imports: [DatabaseModule, CryptographyModule, EmailModule],
+  controllers: [UsersController, AuthController, EmailController],
   providers: [CreateUser, LoginUser, LoginWithGoogle, JwtService, UpdateUser],
 })
 export class HttpModule {}

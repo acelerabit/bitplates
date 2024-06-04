@@ -6,7 +6,7 @@ import { Response } from 'express';
 import * as bcrypt from 'bcrypt';
 import { HashCompare } from '@/application/cryptography/hash-comparer';
 import { Encrypter } from '@/application/cryptography/encrypter';
-import { jwtSecret } from '@/application/common/constants';
+import { jwtSecret } from '@/common/constants';
 
 interface LoginRequest {
   email: string;
